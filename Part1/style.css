@@ -1,0 +1,157 @@
+/* chota variable overrides */
+:root {
+    --color-primary: #1a9f60;
+    --color-primary: #1a9f60;
+    --color-primary: #2c5caa;
+    --color-lightGrey: #d2d6dd;
+    --color-grey: #7e818b;
+    --color-darkGrey: #3f4144;
+    --color-error: #d43939;
+    --color-success: #28bd14;
+    --grid-maxWidth: 120rem;
+    --grid-gutter: 2rem;
+    --font-size: 1.6rem;
+    --font-family: "Helvetica Neue", sans-serif;
+    --color-anc-black: #100f0d;
+    --color-anc-green:#287b37;
+    --color-anc-gold: #fac806;
+    --color-blue: #2c5caa;
+}
+
+
+
+/* not really that important, just a reset to make things easier. */
+html, html * {
+    box-sizing: border-box;
+}
+
+
+main {
+    /* // background-color: rgba(80,80,80,0.2); */
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "nav nav nav"
+                         "side art aside"
+                         "side art aside";
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 80px 1fr;
+    grid-gap: 2px;
+    box-sizing: border-box;
+}
+
+
+main>* {
+    /* border: orange solid 1px; */   /*sorry for the horrible color*/
+    /* border-radius: 10px; */
+    text-align: center;         /*keep the text centered horizontally*/
+    
+}
+
+
+aside {
+    background-color: var(--color-anc-gold);
+    grid-area: aside;
+}
+
+
+section.sidebar {
+    background-color: var(--color-anc-black);;
+    grid-area: side;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+section.sidebar img {
+    max-width: 80%; /* you'll see why this is useful soon, I promise!*/
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+nav {
+    background-color: rgba(30,200,30,0.3);
+    /* background-color: var(--color-anc-green); */
+    grid-area: nav;
+}
+
+article {
+    background-color: var(--color-anc-green);
+    grid-area: art;
+    /* display: grid; */
+    /* grid-template-columns: repeat(1, 1fr); */
+    /* grid-template-rows: repeat(5,1fr); */
+    /* grid-gap: 10px; */
+    
+}
+
+
+/* this short section is different for Part 2 */
+
+article#boxes {
+    background-color: white;
+    grid-area: art;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-gap: 10px;
+    align-content: space-around;
+    padding: 5px;
+    
+}
+
+article .box {
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+article .box div {
+    margin: 10px;
+    border: 2px solid var(--color-grey);
+    box-sizing: border-box;
+    border-radius: 10px;
+    /* line-height: 90%; */
+    /* vertical-align: center; */
+    text-align:center;
+    padding: 30px;
+}
+
+span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+@media (max-width: 500px) {
+    main {
+        grid-template-areas: "nav"
+                             "art"
+                             "side"
+                             "aside";
+        grid-template-columns: 1fr;
+        grid-template-rows: 80px 2fr 1fr 80px ;
+    }
+    section.sidebar {
+        flex-direction: row;
+    }
+    section.sidebar img {
+        flex: 1;
+        max-height: 40%;
+        flex-shrink: 1;
+    }
+}
+
+div#table td:nth-child(1) {
+    min-width: 10em;
+    // background-color: black;
+}
+
+tr {
+    vertical-align: top;
+    border-bottom: rgba(180,180,180, 0.3) 1px solid;
+    
+}

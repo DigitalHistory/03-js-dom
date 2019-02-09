@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chota@0.5.2/dist/chota.min.css">
+        <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <main>
+            <nav><h1>Leaders of the Anti-Apartheid Movement</h1></nav>
+            <section class="sidebar">
+            </section>
+            <article class=""card">
+                <div id="table"></div>
+              
+            </article>
+            <aside></aside>
+        </main>
+        <script
+	    src="http://code.jquery.com/jquery-3.3.1.min.js"
+	    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+        <script src="01-data-to-rows.js"></script>
+        <script>
+
+         header = tagIt(['Name', 'Born', 'Died',  'Affiliations', 'Quote'].reduce( (html, content) => html + tagIt(content, 'th'), '' ), 'tr')
+         console.log(header);
+         header = tagIt(header, 'thead');
+         body = tagIt(leaders.reduce( (html, person) => html + personRow(person), ''), 'tbody');
+         
+         $('div#table').html(tagIt(header + body, 'table'));
+        </script>
+    </body>
+</html>
+<>
