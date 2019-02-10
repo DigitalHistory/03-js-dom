@@ -17,6 +17,8 @@ var chai=require('chai'),
     // path = require('path'),
     // hwc = require('html-word-count');
     jsdom = require("jsdom");
+
+var fileUrl = require('file-url');
 const { JSDOM } = jsdom;
 
 var testhtml = `<!DOCTYPE html>
@@ -92,8 +94,72 @@ describe('Part 1: From Data to Rows', function() {
   });
 });
 
-describe('Part 2: Dom Tricks', function() {
+// trying to set up some tests
+describe('Part 2: Dom Tricks', function(done) {
+  before (function (done) {
+    let f = fs.readFileSync('Part2/index.html', "utf8");
 
+    let dom = new JSDOM(f,
+                        {runScripts: 'dangerously',
+                         resources: "usable",
+                         url: fileUrl('Part2/index.html') })
+    ;
+    let s = fs.readFileSync('Part1/style.css', "utf8");
+    let j = fs.readFileSync('Part2/02-dom-tricks.js', "utf8");
+
+    global.window = window = dom.window;
+    global.document = document = window.document;
+    $ = global.jQuery = require('jquery')(window);
+    let auxScript = $('body').append(`        <script>
+         secondBoxBlue();
+         navBorderBottom();
+         evenBoxesText();
+         oddBoxesHtml();
+         modifyNav();
+        </script>
+`);
+
+    setTimeout(() => {
+      console.log($('main').css('display'));
+      done();
+       }, 500);
+    
+  });
+
+
+it('Second Box Blue', function(done) {
+  expect($('#box2').css("background-color"), 'The `background-color` property should be set to blue').
+    to.equal('blue');
+  done();
+});
+
+  // it('Nav Border Color', function(done) {
+  //   expect($('nav').css("border-bottom"),  'The `background-color` property should be set to blue').
+  //     to.equal('blue');
+  //   done();
+  // });
+
+  it('Even Boxes Text', function(done) {
+    expect($('#box4').text(),
+           'All the even numbered boxes should contain the text "I am a box". If this seems confusing or impossible, read about the ":nth-child()" CSS selector.').
+      to.equal('I am a box');
+    done();
+  });
+
+
+  it('Odd Boxes Html', function(done) {
+    expect($('#box3').text(),
+           `All the odd  numbered boxes should contain the HTML "<div> I am an inner box</div>". 
+If this seems confusing or impossible, read about the ":nth-child()" CSS selector.`).
+      to.contain('I am an inner box');
+    done();
+  });
+
+
+  it('Remove "Your Name"', function(done) {
+    expect ($('nav h1').html(), '').to.not.contain('Your Name');
+    done();
+  });         
   
 });
 
