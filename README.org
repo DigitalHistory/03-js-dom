@@ -38,7 +38,7 @@ The dataset is an *array of object literals*, just like the arrays of names you 
   name: 'Person\'s Name',
   born: 1111,
   died: 2222,
-  affiliations: ['list, 'of', 'organizations'],
+  affiliations: ['list', 'of', 'organizations'],
   quote: `inspirational quote`,
   description: `lengthy description` 
 }
