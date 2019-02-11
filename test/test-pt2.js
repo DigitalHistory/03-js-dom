@@ -3,36 +3,30 @@
 
 // test if in browser or node
 // cf. https://stackoverflow.com/questions/17575790/environment-detection-node-js-or-browser
+// do I want this anymore? 
 var isNode=new Function("try {return this===global;}catch(e){ return false;}");
 
 // common variables for both environments
 
 //if (isNode()) {
-var chai=require('chai'),
-    chaidom = require('chai-dom'),
+const chai=require('chai'),
     fs=require('fs'),
-    jsdom = require("jsdom");
-
-var fileUrl = require('file-url');
-const { JSDOM } = jsdom;
-var wikiString = 'https://en.wikipedia.org/wiki/';
-
-// declare jquery and window-related vars
-var window, jq,
-    q= require('jquery'),
+    jsdom = require("jsdom"),
     assert=chai.assert,
     expect=chai.expect;
 
-chai.use(chaidom);
-var dtr = require('../Part1/01-data-to-rows.js'),
-    //fns = require('../Part1/01-solution.js'),
-    dt = require('../Part2/02-dom-tricks.js'),
-    dad = require('../Part3/03-dom-data.js'),
-    pl='placeholder;';
-//ocl = require('../Part1/02-solution.js');
+const fileUrl = require('file-url');
+const { JSDOM } = jsdom;
+const wikiString = 'https://en.wikipedia.org/wiki/';
 
-var chai=require('chai'),
-    assert=chai.assert;
+// unclear why this is necessary? 
+var q= require('jquery'); // feels like these should be removed but Pt 2 errors (!)
+    
+
+const dtr = require('../Part1/01-data-to-rows.js'),
+    dt = require('../Part2/02-dom-tricks.js'),
+    dad = require('../Part3/03-dom-data.js');
+    // pl='placeholder;';
 
 // random word generator
 const randw = require('random-words');
@@ -75,6 +69,7 @@ describe('Part 1: From Data to Rows', function() {
 // trying to set up some tests
 describe('Part 2: Dom Tricks', function(done) {
   before (function (done) {
+    this.timeout(5000);
     let f = fs.readFileSync('Part2/index.html', "utf8");
 
     let dom = new JSDOM(f,
@@ -88,7 +83,13 @@ describe('Part 2: Dom Tricks', function(done) {
     global.window = window = dom.window;
     global.document = document = window.document;
     $ = global.jQuery = require('jquery')(window);
-    let auxScript = $('body').append(`        <script>
+    let style = $('head').append(`<style>${s}</style>`);
+//    let jsScript = $('head').append(`<script>${j}</script>`);
+   
+
+    setTimeout(() => {
+      // console.log($('main').css('display'));
+      let auxScript = $('body').append(`        <script>
          secondBoxBlue();
          navBorderBottom();
          evenBoxesText();
@@ -96,11 +97,9 @@ describe('Part 2: Dom Tricks', function(done) {
          modifyNav();
         </script>
 `);
-
-    setTimeout(() => {
-      console.log($('main').css('display'));
+      // console.log($('#box2').css('background-color'));
       done();
-       }, 500);
+       }, 1500);
     
   });
 
@@ -216,90 +215,3 @@ describe('Part 3: Data to DOM (dynamic tests)', function(done) {
 });
 
 
-// describe('Part 3: Data to DOM', function() {
-//   describe('Unit Tests', function() {
-
-//     beforeEach (function (done) {
-//       // window = new JSDOM(testhtml).window;
-//       // jq = q(window);
-//       // global.window = window;
-//       // global.document = window.document;
-//       // done();
-//     });
-    
-//     it('function addLink(node, "Some Name", "https://en.Wikipedia.org/wiki/Some Name") should return the original node with a new <a> tag inside', function() {
-//       let td = jq('td')[0],
-//           t  = "Some Name",
-//           u  = "https://en.wikipedia.org/wiki/" + t;
-//       lm.addLink(td,t,u);
-//       expect(td,
-//              'element has contains no a tag with href ' + u).
-//         to.have.descendant('a').with.attr('href').equal(u);
-//       expect(td,
-//              'element has no a tag with text ' + t).
-//         to.have.descendant('a').with.text(t);
-//       expect(td.textcontent).to.be.undefined;
-//       // console.log(td.outerHTML);
-//       // assert.equal(lm.addLink(td,t,u).outerHTML,
-//       //              jq('<td class="PM"><a href="https://en.wikipedia.org/wiki/Some Name">Some Name</a></td>')[0].outerHTML );
-//           });
-//     it('function wikify("Elijah Harper") should return "https://en.wikipedia.org/wiki/Elijah_Harper" (Elijah Harper & Elijah_Harper both accepted)',
-//        function() {
-//       expect(lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah Harper" ||
-//                    lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah_Harper",
-//                   "wikify should turn 'Elijah Harper' into either https://en.wikipedia.org/wiki/Elijah Harper" +
-//                     " or https://en.wikipedia.org/wiki/Elijah_Harper").to.be.true;
-//     });
-//     it('function linkifyClass should linkify all elements of a given class', function() {
-//       lm.linkifyClass("PM");
-//       for(var i = 0; i < jq('td.PM').length; i++) {
-//         let el = jq('td.PM')[i]; 
-//         expect(el,
-//                'this test will fail if a td element does not have a child "a" node').
-//           to.contain('a');
-//         expect(el.textcontent,
-//                'this test will fail if the td element contains text outside of its child node').
-//           to.be.undefined;
-//       }
-//       for(var i = 0; i < jq('td.PM a').length; i++) {
-//         let el = jq('td.PM a')[i];
-//         expect(el,
-//                'this test will fail if an <a> element \in the table does not have a Wikipedia href').
-//           to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
-//       }
-//     });
-
-//   });
-
-//   describe('Integration tests: does the page load as expected?', function() {
-//     let indexHtml = fs.readFileSync("Part2/index.html", "utf-8");
-//     beforeEach (function (done) {
-//       window = new JSDOM(indexHtml).window;
-//       jq = q(window);
-//       global.window = window;
-//       global.document = window.document;
-//       done();
-//     });
-
-//     it('Check to see whether index.html is still set up correctly. Running updatePage() in index.html should perform the correct updates.', function() {
-//       lm.updatePage();
-//       for(var i = 0; i < jq('td.PM').length; i++) {
-//         let el = jq('td.PM')[i]; 
-//         expect(el,
-//                'this test will fail if a td element does not have a child "a" node').
-//           to.contain('a');
-//         expect(el.textcontent,
-//                'this test will fail if the td element contains text outside of its child node').
-//           to.be.undefined;
-//       }
-//       for(var i = 0; i < jq('td.PM a').length; i++) {
-//         let el = jq('td.PM a')[i];
-//         expect(el,
-//                'this test will fail if an <a> element \in the table does not have a Wikipedia href').
-//           to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
-//       }
-//     });
-
-//   });
-
-// });

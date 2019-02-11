@@ -31,7 +31,59 @@ let biko = {
       description: `Tambo, Mandela and Walter Sisulu were the founding members of the ANC Youth League in 1943, with Tambo becoming its first National Secretary and a member of the National Executive in 1948. The Youth League proposed a change in the tactics of the anti-apartheid movement. Previously, the ANC had sought to further its cause by actions such as petitions and demonstrations; the Youth League felt these actions were insufficient to achieve the group's goals and proposed their own 'Programme of Action'. This programme advocated tactics such as boycotts, civil disobedience, strikes, and non-collaboration.
 Tambo being greeted on arrival in East Germany (1978). In 1955, Tambo became Secretary General of the ANC after Sisulu was banned by the South African government under the Suppression of Communism Act. In 1958, he became Deputy President of the ANC and in 1959 was served with a five-year banning order by the government. In response, Tambo was sent abroad by the ANC to mobilize opposition to apartheid. He settled with his family in Muswell Hill, north London, where he lived until 1990.[2] He was involved in the formation of the South African Democratic Front. In 1967, Tambo became Acting President of the ANC, following the death of Chief Albert Lutuli. `
     },
-    leaders = [biko, tambo];
+    sisulu = {
+      name: 'Walter Sisulu',
+      born: 1912,
+      died: 2003,
+      affiliations: ['ANC'],
+      quote: ``,
+      description: ` Sisulu was a South African anti-apartheid activist and member of the African National Congress (ANC), serving at times as Secretary-General and Deputy President of the organization. He was jailed at Robben Island, where he served more than 25 years' imprisonment.`
+    },
+    sobukwe = {
+      name: 'Robert Sobukwe',
+      born: 1924,
+      died: 1978,
+      affiliations: ['ANC', 'PAC'],
+      description: `Founder of the Pan Africanist Congress, which split from the ANC over a set of ideological issues including the question of alliance between Africans and other racial groups. During his lifetime, Sobukwe was considered to be so dangerous by the National Party government that its parliament enacted the "Sobukwe clause", a statute which on its face seemed to grant broadly applicable powers, but was specifically intended to authorise the arbitrary extension of Sobukwe's imprisonment. `
+    },
+    goldberg = {
+      name: 'Denis Goldberg',
+      born: 1933,
+      died: null,
+      affiliations: ['SACOD', 'ANC', 'SACP'],
+      description: `When the underground armed wing of the ANC, Umkhonto we Sizwe was founded in 1961, Goldberg became a technical officer. In 1963 he was arrested at the Rivonia headquarters of their army. He was sentenced in 1964 at the end of the famous Rivonia Trial to four terms of life imprisonment. He was the only white member of Umkhonto we Sizwe to be arrested and sentenced in the Rivonia Trial to life imprisonment.`
+    },
+    first = {
+      name: 'Ruth First',
+      born: 1925,
+      died: 1982,
+      affiliations: ['SACP', 'ANC'],
+      description: `Ruth First was one of the defendants in the Treason Trial of 1956-1961, alongside 156 other leading anti-apartheid activists who were key figures in the Congress Alliance. After the state of emergency that followed the Sharpeville massacre in 1960 she was listed and banned. She could not attend meetings or publish, and she could not be quoted. In 1963, during another government crackdown, she was imprisoned and held in isolation without charge for 117 days under the Ninety-Day Detention Law. She was the first white woman to be detained under this law. She was killed by a parcel bomb addressed specifically to her in Mozambique, where she worked in exile from South Africa.`
+    },
+    ngoyi = {
+      name: 'Lillian Ngoyi',
+      born: 1911,
+      died: 1980,
+      affiliations: ['ANC', 'FEDSAW'],
+      description: `Ngoyi was the first woman elected to the executive committee of the African National Congress, and helped launch the Federation of South African Women.`
+    },
+    tutu = {
+      name: 'Desmond Tutu',
+      born: 1931,
+      died: null,
+      affiliations: ['SACC'],
+      description: `South African Anglican cleric and theologian known for his work as an anti-apartheid and human rights activist. He was the Bishop of Johannesburg from 1985 to 1986 and then the Archbishop of Cape Town from 1986 to 1996, in both cases being the first black African to hold the position. Theologically, he sought to fuse ideas from black theology with African theology`
+    },
+    mandela = {
+      name: 'Nelson Mandela',
+      born: 1918,
+      died: 2013,
+      affiliations: ['ANC', 'SACP'],
+      quote: `For to be free is not merely to cast off one's chains, but to live in a way that respects and enhances the freedom of others.`,
+      description: `The first black South African head of state and the first elected in a fully representative democratic election. His government focused on dismantling the legacy of apartheid by tackling institutionalised racism and fostering racial reconciliation. Ideologically an African nationalist and socialist. Mandela studied law before working as a lawyer in Johannesburg. There he became involved in anti-colonial and African nationalist politics, joining the ANC in 1943 and co-founding its Youth League in 1944.  Mandela was appointed President of the ANC's Transvaal branch, rising to prominence for his involvement in the 1952 Defiance Campaign and the 1955 Congress of the People. He was repeatedly arrested for seditious activities and was unsuccessfully prosecuted in the 1956 Treason Trial. Although initially committed to non-violent protest, in association with the SACP he co-founded the militant Umkhonto we Sizwe in 1961 and led a sabotage campaign against the government. He was arrested and imprisoned in 1962, and subsequently sentenced to life imprisonment for conspiring to overthrow the state following the Rivonia Trial.`
+    };
+
+leaders = [biko, tambo, mandela, tutu, ngoyi, sobukwe, goldberg, first];
 
 
 

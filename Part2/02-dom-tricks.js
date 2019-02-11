@@ -22,14 +22,14 @@
 
 function secondBoxBlue () {
   // set the background-color property of box #box2 to "blue"
-  return $('#box2').css('background-color', 'blue');
+  return '';
 
 }
 
 // Problem 2b: give the nav bar a bottom border
 function navBorderBottom () {
   // give the nav bar a border-bottom property of "10px solid rgba(180,40,40,0.8)"
-  return $('nav').css('border-bottom', '10px solid rgba(180,40,40,0.8)');
+  return '';
   // return $()
 }
 
@@ -37,29 +37,27 @@ function navBorderBottom () {
 function evenBoxesText () {
   // add the text content "I am a box" to all the even-numbered boxes in <article>
   // hint: use the ":nth-child()" pseudo-selector.
-  return $('article .box:nth-child(even)').text("I am a box");
+  return '';
 }
 
 
 // Problem 2d: set the HTML content of odd-numbered boxes.
 function oddBoxesHtml () {
   // set the HTML content of the even boxes to "<div> I am an inner box</div>"
-  return $('article .box:nth-child(odd)').html('<div> I am an inner box</div>');
+  return '';
 }
 
 
-// Problem 2e: the built-in String method "replace" can replace part of a string with some other string.
+// Problem 2e: the built-in String method "replace" can replace part of a string
+// with some other string.
+//
 // so for instance,:
 // let s = "My Name";
 // s = s.replace("My", "Your");
 // s // "Your Name:"
 // use this trick to replace the phrase "Your Name" in the header with your actual name. 
 function modifyNav ()  {
-  return $('nav>h1').text(function() {
-    return $(this).text().replace("Your Name", "Matt Price");
-  });
-  // return $('nav>h1').text( () => $(this).text().replace("Your Name", "Matt Price"));
-  // return $('nav>h1').text( (el) => console.log($(el)));
+  return '';
 }
 
 
