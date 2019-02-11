@@ -10,8 +10,8 @@ require('jsdom-global')();
 let f = fs.readFileSync('../Part2/index.html', "utf8");
 // let h = fs.readFileSync('../Part2/head.html', "utf8");
 // let b = fs.readFileSync('../Part2/body.html', "utf8");
-// let s = fs.readFileSync('../Part1/style.css', "utf8");
-// let j = fs.readFileSync('../Part2/02-dom-tricks.js', "utf8");
+let s = fs.readFileSync('../Part1/style.css', "utf8");
+let j = fs.readFileSync('../Part2/02-dom-tricks.js', "utf8");
 // document.head.innerHTML=h;
 // document.body.innerHTML=b;
 
@@ -31,9 +31,19 @@ global.window = window = dom.window;
     
 global.document = document = window.document;
 let $ = global.jQuery = require('jquery');
-// let style = dom.window.document.$('head').append(`<style>${s}</style>`);
-
+let style = $('head').append(`<style>${s}</style>`);
+let jsScript = $('head').append(`<script>${j}</script>`);
+let auxScript = $('body').append(`        <script>
+         secondBoxBlue();
+         navBorderBottom();
+         evenBoxesText();
+         oddBoxesHtml();
+         modifyNav();
+        </script>
+`);
 console.log($('nav').html());
+console.log($('nav').html());
+console.log($('nav').css('background-color'));
 
 // // document = sillyDom.window.document;
 //   // const { window } = dom;
