@@ -11,32 +11,11 @@ var isNode=new Function("try {return this===global;}catch(e){ return false;}");
 var chai=require('chai'),
     chaidom = require('chai-dom'),
     fs=require('fs'),
-    // fs = require('fs'),
-    // request = require('request'),
-    // cheerio=require('cheerio'),
-    // path = require('path'),
-    // hwc = require('html-word-count');
     jsdom = require("jsdom");
 
 var fileUrl = require('file-url');
 const { JSDOM } = jsdom;
-
-var testhtml = `<!DOCTYPE html>
-<html>
-  <head></head>
-  <body>
-    <table>
-      <tr>
-        <td class="PM">Some Name</td>
-        <td class="PM">Second Name</td>
-        <td class="PM">Third Name</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-  </body>
-</html>
-`;
+var wikiString = 'https://en.wikipedia.org/wiki/';
 
 // declare jquery and window-related vars
 var window, jq,
@@ -45,11 +24,10 @@ var window, jq,
     expect=chai.expect;
 
 chai.use(chaidom);
-
 var dtr = require('../Part1/01-data-to-rows.js'),
     //fns = require('../Part1/01-solution.js'),
     dt = require('../Part2/02-dom-tricks.js'),
-    // dad = require('../Part3/03-dom-data.js'),
+    dad = require('../Part3/03-dom-data.js'),
     pl='placeholder;';
 //ocl = require('../Part1/02-solution.js');
 
@@ -163,91 +141,165 @@ If this seems confusing or impossible, read about the ":nth-child()" CSS selecto
   
 });
 
-
-describe('Part 2: Javascript in the Browser', function() {
-  describe('Unit Tests', function() {
-
-    beforeEach (function (done) {
-      window = new JSDOM(testhtml).window;
-      jq = q(window);
-      global.window = window;
-      global.document = window.document;
-      done();
-    });
-    
-    it('function addLink(node, "Some Name", "https://en.Wikipedia.org/wiki/Some Name") should return the original node with a new <a> tag inside', function() {
-      let td = jq('td')[0],
-          t  = "Some Name",
-          u  = "https://en.wikipedia.org/wiki/" + t;
-      lm.addLink(td,t,u);
-      expect(td,
-             'element has contains no a tag with href ' + u).
-        to.have.descendant('a').with.attr('href').equal(u);
-      expect(td,
-             'element has no a tag with text ' + t).
-        to.have.descendant('a').with.text(t);
-      expect(td.textcontent).to.be.undefined;
-      // console.log(td.outerHTML);
-      // assert.equal(lm.addLink(td,t,u).outerHTML,
-      //              jq('<td class="PM"><a href="https://en.wikipedia.org/wiki/Some Name">Some Name</a></td>')[0].outerHTML );
-          });
-    it('function wikify("Elijah Harper") should return "https://en.wikipedia.org/wiki/Elijah_Harper" (Elijah Harper & Elijah_Harper both accepted)',
-       function() {
-      expect(lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah Harper" ||
-                   lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah_Harper",
-                  "wikify should turn 'Elijah Harper' into either https://en.wikipedia.org/wiki/Elijah Harper" +
-                    " or https://en.wikipedia.org/wiki/Elijah_Harper").to.be.true;
-    });
-    it('function linkifyClass should linkify all elements of a given class', function() {
-      lm.linkifyClass("PM");
-      for(var i = 0; i < jq('td.PM').length; i++) {
-        let el = jq('td.PM')[i]; 
-        expect(el,
-               'this test will fail if a td element does not have a child "a" node').
-          to.contain('a');
-        expect(el.textcontent,
-               'this test will fail if the td element contains text outside of its child node').
-          to.be.undefined;
-      }
-      for(var i = 0; i < jq('td.PM a').length; i++) {
-        let el = jq('td.PM a')[i];
-        expect(el,
-               'this test will fail if an <a> element \in the table does not have a Wikipedia href').
-          to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
-      }
-    });
-
+describe('Part 3: Data to DOM (static tests)', function() {
+    it('Wiki URL should return an appropriate string', function() {
+    let n = randw(2);
+    expect(dad.wikiUrl (n),
+           'the expected return vaue is a simple string that adds the Wikipedia URL path in front of the name').
+      to.equal('https://en.wikipedia.org/wiki/' + n) ;
   });
 
-  describe('Integration tests: does the page load as expected?', function() {
-    let indexHtml = fs.readFileSync("Part2/index.html", "utf-8");
-    beforeEach (function (done) {
-      window = new JSDOM(indexHtml).window;
-      jq = q(window);
-      global.window = window;
-      global.document = window.document;
+  it('wikiLink should return a fully-formed link, as a string', function() {
+    let n = randw(2);
+    expect (dad.wikiLink(n), 'look carefully at the structure and check for minor errors').
+      to.equal(`<a href="https://en.wikipedia.org/wiki/${n}">${n}</a>`);
+  });
+
+ 
+});
+
+
+describe('Part 3: Data to DOM (dynamic tests)', function(done) {
+  beforeEach (function (done) {
+    let cells=`<html><head></head><body><table><tr><td class="name">Billiy Joel</td><td class="name">Elton John</td></tr></table></body></html>`;
+    // let f = fs.readFileSync('Part3/index.html', "utf8");
+
+    let dom = new JSDOM(cells,
+                        {runScripts: 'dangerously',
+                         resources: "usable",
+                         url: fileUrl('Part3/index.html') })
+    ;
+    let s = fs.readFileSync('Part1/style.css', "utf8");
+    let j = fs.readFileSync('Part3/03-dom-data.js', "utf8");
+
+    global.window = window = dom.window;
+    global.document = document = window.document;
+    $ = global.jQuery = require('jquery')(window);
+    let style = $('head').append(`<style>${s}</style>`);
+    let jsScript = $('head').append(`<script>${j}</script>`);
+
+    setTimeout(() => {
       done();
-    });
+    }, 500);
 
-    it('Check to see whether index.html is still set up correctly. Running updatePage() in index.html should perform the correct updates.', function() {
-      lm.updatePage();
-      for(var i = 0; i < jq('td.PM').length; i++) {
-        let el = jq('td.PM')[i]; 
-        expect(el,
-               'this test will fail if a td element does not have a child "a" node').
-          to.contain('a');
-        expect(el.textcontent,
-               'this test will fail if the td element contains text outside of its child node').
-          to.be.undefined;
-      }
-      for(var i = 0; i < jq('td.PM a').length; i++) {
-        let el = jq('td.PM a')[i];
-        expect(el,
-               'this test will fail if an <a> element \in the table does not have a Wikipedia href').
-          to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
-      }
-    });
+    
+  });
 
+  it('wikifyElementHtml should add a child to its target element', function(done) {
+    let s = $('body').append(`<script>wikifyElementHtml($('td')[0])</script>`);
+    setTimeout(() => {
+      let e = $('td')[0];
+      let t = $(e).text();
+      // expect($('td').html(), '').to.equal(`<a href="${wikiString}${t}">${t}</a>`) ;
+      expect($(e).children().length).to.be.above(0);
+          done();
+    }, 500);
+    
+  });
+  
+
+  it('WikifyClass should append children to all td elements', function(done) {
+    let command = $('body').append(`<script>wikifyClass('name')</script>`);
+    
+    let e = $('td')[1];
+    let t = $(e).text();
+    expect($(e).html(), '').to.equal(`<a href="${wikiString}${t}">${t}</a>`) ;
+    done();
+    $('.name').each(function () {
+      let t = $(e).text();
+      expect($(e).html(), '').to.equal(`<a href="${wikiString}${t}">${t}</a>`) ;
+      
+      
+    });
   });
 
 });
+
+
+// describe('Part 3: Data to DOM', function() {
+//   describe('Unit Tests', function() {
+
+//     beforeEach (function (done) {
+//       // window = new JSDOM(testhtml).window;
+//       // jq = q(window);
+//       // global.window = window;
+//       // global.document = window.document;
+//       // done();
+//     });
+    
+//     it('function addLink(node, "Some Name", "https://en.Wikipedia.org/wiki/Some Name") should return the original node with a new <a> tag inside', function() {
+//       let td = jq('td')[0],
+//           t  = "Some Name",
+//           u  = "https://en.wikipedia.org/wiki/" + t;
+//       lm.addLink(td,t,u);
+//       expect(td,
+//              'element has contains no a tag with href ' + u).
+//         to.have.descendant('a').with.attr('href').equal(u);
+//       expect(td,
+//              'element has no a tag with text ' + t).
+//         to.have.descendant('a').with.text(t);
+//       expect(td.textcontent).to.be.undefined;
+//       // console.log(td.outerHTML);
+//       // assert.equal(lm.addLink(td,t,u).outerHTML,
+//       //              jq('<td class="PM"><a href="https://en.wikipedia.org/wiki/Some Name">Some Name</a></td>')[0].outerHTML );
+//           });
+//     it('function wikify("Elijah Harper") should return "https://en.wikipedia.org/wiki/Elijah_Harper" (Elijah Harper & Elijah_Harper both accepted)',
+//        function() {
+//       expect(lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah Harper" ||
+//                    lm.wikify("Elijah Harper" ) == "https://en.wikipedia.org/wiki/Elijah_Harper",
+//                   "wikify should turn 'Elijah Harper' into either https://en.wikipedia.org/wiki/Elijah Harper" +
+//                     " or https://en.wikipedia.org/wiki/Elijah_Harper").to.be.true;
+//     });
+//     it('function linkifyClass should linkify all elements of a given class', function() {
+//       lm.linkifyClass("PM");
+//       for(var i = 0; i < jq('td.PM').length; i++) {
+//         let el = jq('td.PM')[i]; 
+//         expect(el,
+//                'this test will fail if a td element does not have a child "a" node').
+//           to.contain('a');
+//         expect(el.textcontent,
+//                'this test will fail if the td element contains text outside of its child node').
+//           to.be.undefined;
+//       }
+//       for(var i = 0; i < jq('td.PM a').length; i++) {
+//         let el = jq('td.PM a')[i];
+//         expect(el,
+//                'this test will fail if an <a> element \in the table does not have a Wikipedia href').
+//           to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
+//       }
+//     });
+
+//   });
+
+//   describe('Integration tests: does the page load as expected?', function() {
+//     let indexHtml = fs.readFileSync("Part2/index.html", "utf-8");
+//     beforeEach (function (done) {
+//       window = new JSDOM(indexHtml).window;
+//       jq = q(window);
+//       global.window = window;
+//       global.document = window.document;
+//       done();
+//     });
+
+//     it('Check to see whether index.html is still set up correctly. Running updatePage() in index.html should perform the correct updates.', function() {
+//       lm.updatePage();
+//       for(var i = 0; i < jq('td.PM').length; i++) {
+//         let el = jq('td.PM')[i]; 
+//         expect(el,
+//                'this test will fail if a td element does not have a child "a" node').
+//           to.contain('a');
+//         expect(el.textcontent,
+//                'this test will fail if the td element contains text outside of its child node').
+//           to.be.undefined;
+//       }
+//       for(var i = 0; i < jq('td.PM a').length; i++) {
+//         let el = jq('td.PM a')[i];
+//         expect(el,
+//                'this test will fail if an <a> element \in the table does not have a Wikipedia href').
+//           to.have.attr('href').with.string("https://en.wikipedia.org/wiki/");
+//       }
+//     });
+
+//   });
+
+// });
