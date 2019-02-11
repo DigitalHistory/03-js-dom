@@ -101,10 +101,10 @@ else {
   exports = window.skeleton = {};
 }
 
-let functions = [personRow, peopleRows, tagIt ,  biko, leaders];
+let modFuns = [personRow, peopleRows, tagIt ,  biko, leaders];
 
-for (let i in functions) {
-  exports[functions[i].name] = functions[i]; // get the name as string first!
+for (let i in modFuns) {
+  exports[modFuns[i].name] = modFuns[i]; // get the name as string first!
 }
 
 exports.leaders = leaders;
