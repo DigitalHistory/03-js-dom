@@ -97,6 +97,13 @@ leaders = [biko, tambo, mandela, tutu, ngoyi, sobukwe, goldberg, first];
 
 
 
+/**
+ * return a string of the form <tagName>content</tagName>, where `content`
+ * and `tagName` are string parameters passed to the function.
+ * @param {string} content
+ * @param {string} tagName
+ * @returns {string} 
+ */
 function tagIt(content, tagName) {
   return '';
 }
@@ -115,6 +122,18 @@ function tagIt(content, tagName) {
 /////////////////////////////////////////////////////////////////////////
 
 
+/**
+ * Build a valid HTML table row (as a string) from the attributes of
+ * `person`, which should at minimum have these attributes:
+ * name, born, died, affiliations, quote.
+ * @param {Object} person
+ * @param {string} person.name
+ * @param {string} person.quote
+ * @param {number} person.born
+ * @param {number} person.died
+ * @param {string|string[]} person.affiliations
+  * @returns {string} 
+ */
 function personRow (person) {
   return '';
 }
@@ -136,7 +155,37 @@ function personRow (person) {
 //////////////////////////////////////////////////////////////////////////
 
 
+/**
+ * BUild a valid HTML table (as a string) from an array of `Person` opjects.
+ * TODO: add entry indicating that array elements are objects
+ * @param {Object[]} people
+ * @param {string} people[].name
+ * @param {string} people[].name
+ * @returns {} string
+ */
 function peopleRows (people) {
+  return '';
+}
+
+
+
+
+/*  Problem 1d: Write a simple function that generates an HTML elemnt
+ *  object when passed two variables: tag CONTENT and and tag NAME. So
+ *  for instance, `tagItElement ("look at me!", "div")` should return a JavaScript 
+*/
+
+
+
+/**
+ * return a string of the form <tagName>content</tagName>, where `content`
+ * and `tagName` are string parameters passed to the function.
+ * @param {string} content
+ * @param {string} tagName
+ * @returns {string} 
+ */
+function tagItElement(content, tagName) {
+  return $
   return '';
 }
 
