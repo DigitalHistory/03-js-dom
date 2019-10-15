@@ -170,26 +170,6 @@ function peopleRows (people) {
 
 
 
-/*  Problem 1d: Write a simple function that generates an HTML elemnt
- *  object when passed two variables: tag CONTENT and and tag NAME. So
- *  for instance, `tagItElement ("look at me!", "div")` should return a JavaScript 
-*/
-
-
-
-/**
- * return a string of the form <tagName>content</tagName>, where `content`
- * and `tagName` are string parameters passed to the function.
- * @param {string} content
- * @param {string} tagName
- * @returns {string} 
- */
-function tagItElement(content, tagName) {
-  return $
-  return '';
-}
-
-
 // DO NOT MODIFY -- FOR AUTOMATED TESTING ONLY
 // MODIFYING THIS CODE WILL ALMOST CERTAINLY CAUSE YOUR TESTS TO BREAK
 // AND YOUR ASSIGNMENT TO FAIL!
