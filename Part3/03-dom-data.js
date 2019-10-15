@@ -1,33 +1,46 @@
 
 
-// this function should return a new string with a valid Wikipedia link of the form
-// "https://en.wikipedia.org/wiki/Some Name"
+/**
+ * this function should return a new string with a valid Wikipedia link of the form
+ * "https://en.wikipedia.org/wiki/Some Name"
+ * @param {string} name
+ * @returns {string} of form https://en.Wikipedia.org/wiki/name
+ */
 function wikiUrl (name) {
   return '';
 }
 
-// given a name, this function should return, as a string, a valid link to a wiki page
-// of the form <a href='link url'>content</a>
-// the function `wikiURL` should make it easier to do this.
+
+/**
+ * given a name, this function should return, as a string, a valid link to a wiki page
+ * of the form <a href='link url'>content</a>
+ * the function `wikiURL` should make it easier to do this.
+ * @param {string} name
+ * @returns {} 
+ */
 function wikiLink (name) {
   return '';
   // return $()
 }
 
-// passed an HTML element object as a parameter, this function should
-// set the element's HTML content to a wikiLink whose internal text content is the original
-// element's text content. 
+
+/**
+ * passed an HTML element object as a parameter, this function should
+ * set the element's HTML content to a wikiLink whose internal text content is the original
+ * element's text content. 
+ * @param {HTMLElement} element
+ * @returns {string} modified HTML content
+ */
 function wikifyElementHtml (element) {
   return '';
 }
 
-// passed a class name or other selector, this function should iterate through all
-// the matching elements and wikify their text.  
-function wikifyClass (selector) {
 
-}
-
-
+/**
+ * passed a class name or other selector, this function should iterate through all
+ * the matching elements and wikify their text.  
+ * @param {string} selector
+ */
 function wikifySelector(selector) {
 };
   
