@@ -83,7 +83,7 @@ Your code should change that to this:
 
 #+begin_src html
 <tr id="steve-biko">
-  <td class="name"><a href="https://en.Wikipedia.org/wiki/Steve Biko"Steve Biko</a></td>
+  <td class="name"><a href="https://en.wikipedia.org/wiki/Steve Biko"Steve Biko</a></td>
   <td class="born">1946</td>
   <td class="died">1977</td>
   <td class="affiliations">SASO,Black Consciousness</td>
@@ -107,7 +107,7 @@ Now, consider the structure of Wikipedia links:
 https://en.wikipedia.org/wiki/Steve Biko
 #+END_SRC
 
-Note they always consist of "https://en.Wikipedia.org/wiki/" + A_Name_With_Spaces_Replaced_By_Underscores.  But, lucky you, /Wikipedia will rewrite spaces as underscores for you!/ So you just need to besure you are producing the correct string, which consists of the Wikipedia "prefix" plus the figure's name
+Note they always consist of "https://en.wikipedia.org/wiki/" + A_Name_With_Spaces_Replaced_By_Underscores.  But, lucky you, /Wikipedia will rewrite spaces as underscores for you!/ So you just need to besure you are producing the correct string, which consists of the Wikipedia "prefix" plus the figure's name
 
 
 ** Part 4: Reflection
