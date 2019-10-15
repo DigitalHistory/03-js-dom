@@ -123,16 +123,17 @@ function tagIt(content, tagName) {
 
 
 /**
- * Build a valid HTML table row (as a string) from the attributes of
- * `person`, which should at minimum have these attributes:
+ * Builds a valid HTML table row (as a string) from the attributes of
+ * `person`, which should at minimum have these attributes (see sample data above):
  * name, born, died, affiliations, quote.
+ * `affiliations` can be either a string or an array of strings
  * @param {Object} person
  * @param {string} person.name
  * @param {string} person.quote
  * @param {number} person.born
  * @param {number} person.died
  * @param {string|string[]} person.affiliations
-  * @returns {string} 
+ * @returns {string} 
  */
 function personRow (person) {
   return '';
@@ -156,11 +157,16 @@ function personRow (person) {
 
 
 /**
- * BUild a valid HTML table (as a string) from an array of `Person` opjects.
- * TODO: add entry indicating that array elements are objects
+ * Builds a valid HTML table (as a string) from an array of `Person` opjects.
+ * Please do not generate a table header -- so, just create html of the form
+ * <table><tr><td></td>....</tr></table>
+ * 
  * @param {Object[]} people
  * @param {string} people[].name
- * @param {string} people[].name
+ * @param {string} people[].quote
+ * @param {number} people[].born
+ * @param {number} people[].died
+ * @param {string|string[]} people[].affiliations
  * @returns {} string
  */
 function peopleRows (people) {
