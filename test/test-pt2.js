@@ -197,8 +197,8 @@ describe('Part 3: Data to DOM (dynamic tests)', function(done) {
   });
   
 
-  it('WikifyClass should append children to all td elements', function(done) {
-    let command = $('body').append(`<script>wikifyClass('name')</script>`);
+  it('WikifySelector should append children to all td elements', function(done) {
+    let command = $('body').append(`<script>wikifySelector('name')</script>`);
     
     let e = $('td')[1];
     let t = $(e).text();
