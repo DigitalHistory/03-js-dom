@@ -20,6 +20,11 @@
 
 // Problem 2a: Turn the second box blue
 
+/**
+ * set property `background-color` of DOM node with id `#box2` to `blue`
+ * no need for any particular return value
+ * @returns {null} 
+ */
 function secondBoxBlue () {
   // set the background-color property of box #box2 to "blue"
   return '';
@@ -27,6 +32,12 @@ function secondBoxBlue () {
 }
 
 // Problem 2b: give the nav bar a bottom border
+
+/**
+ * set css property `border-bottom` of DOM `nav` elements to `10px solid rgba(180,40,40,0.8)`
+ * no need for any particular return value
+ * @returns {} 
+ */
 function navBorderBottom () {
   // give the nav bar a border-bottom property of "10px solid rgba(180,40,40,0.8)"
   return '';
@@ -34,6 +45,11 @@ function navBorderBottom () {
 }
 
 // Problem 2c: Set the Text content of even-numbered boxes.
+/**
+ * add the text content "I am a box" to all the even-numbered boxes in <article>
+ * no need for any particular return value
+ * @returns {} 
+ */
 function evenBoxesText () {
   // add the text content "I am a box" to all the even-numbered boxes in <article>
   // hint: use the ":nth-child()" pseudo-selector.
@@ -42,6 +58,11 @@ function evenBoxesText () {
 
 
 // Problem 2d: set the HTML content of odd-numbered boxes.
+/**
+ * set the HTML content of the even boxes to "<div> I am an inner box</div>"
+ * no need for any particular return value
+ * @returns {} 
+ */
 function oddBoxesHtml () {
   // set the HTML content of the even boxes to "<div> I am an inner box</div>"
   return '';
@@ -56,6 +77,13 @@ function oddBoxesHtml () {
 // s = s.replace("My", "Your");
 // s // "Your Name:"
 // use this trick to replace the phrase "Your Name" in the header with your actual name. 
+
+
+/**
+ * replace text `Your Name` in the nav element with your actual name
+ * no need for any particular return value
+ * @returns {} 
+ */
 function modifyNav ()  {
   return '';
 }
