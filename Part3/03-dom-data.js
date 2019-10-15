@@ -55,11 +55,11 @@ if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 }
 else {
   exports = window.skeleton = {};
-  wikifyClass('.name');
+  wikifySelector('.name');
 
 }
 
-let modFuns = [wikiUrl, wikiLink, wikifyElementHtml, wikifyClass];
+let modFuns = [wikiUrl, wikiLink, wikifyElementHtml, wikifySelector];
 
 for (let i in modFuns) {
   exports[modFuns[i].name] = modFuns[i]; // get the name as string first!
