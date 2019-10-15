@@ -1,4 +1,4 @@
-* Javascript Assignment: Goal
+* Javascript Dom and Data Assignment: Goal
 This is an assignment for [[http://digital.hackinghistory.ca][Digital History]], a digital humanities course taught in the History Department at the University of Toronto.  If you're a teacher, feel free to fork and repurpose for your own courses.  If you're a student, keep reading!
 
 To repeat myself: you do not have to become a coder to do well in this course.  However, you /will/ have to be willing to explore technical skills that you might not otherwise develop as a humanities scholar.  In this assignment, you will extend your knowledge of JavaScript to allow you to work directly with the content of web pages. The goal of the assignment is to provide you with basic technical knowledge that you will need for later assignments.  
@@ -11,7 +11,7 @@ This assignment is graded pass/fail. You will only get credit if *all of your co
 - complete at least the first three parts of this assignment (plus the fourth part if you hope to get an A in the class), such that both the student-visible tests and the instructor/machine-visible tests all pass.
 - commit your work to git as you go, so that a query of the git history will show multiple steps. Please note that git commits are timestamped and unique; they are an excellent defense against accusations of cheating, so please use them extensively. Tests will fail unless you make at least 6 commits to the repository.
 - push all your changes to Github
-- the last commit *pushed to the master branch* by the assignment deadline becomes your submisison automatically
+- the last commit *pushed to the master branch* by the assignment deadline becomes your submission automatically
 
 * Checking Out And Handing In the Assignment
 
@@ -23,7 +23,7 @@ When your assignment passes all tests and you are satisfied with your work, *ple
 
 in the last assignment, you learned to work with JavaScript in a programming environment. You learned how to declare variables, write functions, and iterate across arrays and object properties.  
 
-In this assignment we slowly bring that knowledge back into the browser and the Web environment. This assignment is designed to lead you slowly to the point where you are able to manipulate parts of a web page in simple ways.  You will make use of almost everything you learned in the last two assignments. Much of the difficulty here wil lcome from integrating knowledge you already have, rather than new knowledge.  
+In this assignment we slowly bring that knowledge back into the browser and the Web environment. This assignment is designed to lead you slowly to the point where you are able to manipulate parts of a web page in simple ways.  You will make use of almost everything you learned in the last two assignments. Much of the difficulty here will come from integrating knowledge you already have, rather than from learning new topics.  
 
 ** Part 1 - Introducing the data
 
