@@ -35,11 +35,14 @@
 	    crossorigin=" anonymous "></script>
         <script src="./02-dom-tricks.js"></script>
         <script>
-         secondBoxBlue();
-         navBorderBottom();
-         evenBoxesText();
-         oddBoxesHtml();
-         modifyNav();
+         function makeChanges () {
+             secondBoxBlue();
+             navBorderBottom();
+             evenBoxesText();
+             oddBoxesHtml();
+             modifyNav();
+         }
+         window.onload = makeChanges;
         </script>
     </body>
 </html>
