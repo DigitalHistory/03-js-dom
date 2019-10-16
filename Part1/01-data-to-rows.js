@@ -157,7 +157,7 @@ function personRow (person) {
 
 
 /**
- * Builds a valid HTML table (as a string) from an array of `Person` opjects.
+ * Builds a valid HTML table (as a string) from an array of `Person` objects.
  * Please do not generate a table header -- so, just create html of the form
  * <table><tr><td></td>....</tr></table>
  * 
