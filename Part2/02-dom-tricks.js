@@ -59,12 +59,12 @@ function evenBoxesText () {
 
 // Problem 2d: set the HTML content of odd-numbered boxes.
 /**
- * set the HTML content of the even boxes to "<div> I am an inner box</div>"
+ * set the HTML content of the odd boxes to "<div> I am an inner box</div>"
  * no need for any particular return value
  * @returns {} 
  */
 function oddBoxesHtml () {
-  // set the HTML content of the even boxes to "<div> I am an inner box</div>"
+  // set the HTML content of the odd boxes to "<div> I am an inner box</div>"
   return '';
 }
 
