@@ -34,12 +34,12 @@ function secondBoxBlue () {
 // Problem 2b: give the nav bar a bottom border
 
 /**
- * set css property `border-bottom` of DOM `nav` elements to `10px solid rgba(180,40,40,0.8)`
+ * set css property `border-bottom` of DOM `nav` elements to `10px solid rgb(180,40,40)`
  * no need for any particular return value
  * @returns {} 
  */
 function navBorderBottom () {
-  // give the nav bar a border-bottom property of "10px solid rgba(180,40,40,0.8)"
+  // give the nav bar a border-bottom property of "10px solid rgb(180,40,40)"
   return '';
   // return $()
 }
