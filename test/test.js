@@ -157,9 +157,7 @@ describe('Part 1: From Data to Rows', function() {
   });
 
   it('peopleRows should return a full <table> with appropriate data', function() {
-    expect (dtr.peopleRows([dtr.biko, dtr.tambo]), 'Check your table code for differences').to.equal(`<table><tr><td>Steve Biko</td><td>1946</td><td>1977</td><td>SASO,Black Consciousness</td><td>The most potent weapon in the hands of the oppressor is the mind of the oppressed.</td></tr>
-<tr><td>Oliver Tambo</td><td>1917</td><td>1993</td><td>ANC</td><td>The fight for freedom must go on until it is won; until our country is free and happy and peaceful as part of the community of man, we cannot rest.</td></tr>
-</table>`) ;
+    expect (dtr.peopleRows([dtr.biko, dtr.tambo]), 'Check your table code for differences').to.equal(`<table><tr><td>Steve Biko</td><td>1946</td><td>1977</td><td>SASO,Black Consciousness</td><td>The most potent weapon in the hands of the oppressor is the mind of the oppressed.</td></tr><tr><td>Oliver Tambo</td><td>1917</td><td>1993</td><td>ANC</td><td>The fight for freedom must go on until it is won; until our country is free and happy and peaceful as part of the community of man, we cannot rest.</td></tr></table>`) ;
   });
 });
 
@@ -213,11 +211,16 @@ describe('Part 2: Dom Tricks', function(done) {
   });
 
   // TODO: fix  
-  // it('Nav Border Color', function(done) {
-  //   expect($('nav').css("border-bottom-width"),  'The `background-color` property should be set to blue').
-  //     to.equal('10px');
-  //   done();
-  // });
+  it('Nav Border Color', function(done) {
+    expect($('nav').css("border-bottom-width"),  'The `background-color` property should be set to blue').
+      to.equal('10px');
+    expect($('nav').css("border-bottom-style"),  'The `background-color` property should be set to blue').
+      to.equal('solid');
+    expect($('nav').css("border-bottom-color"),  'The `background-color` property should be set to blue').
+      to.equal('rgb(180,40,40)');
+
+    done();
+  });
 
   it('Even Boxes Text', function(done) {
     expect($('#box4').text(),
