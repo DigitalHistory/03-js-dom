@@ -211,11 +211,16 @@ describe('Part 2: Dom Tricks', function(done) {
   });
 
   // TODO: fix  
-  // it('Nav Border Color', function(done) {
-  //   expect($('nav').css("border-bottom-width"),  'The `background-color` property should be set to blue').
-  //     to.equal('10px');
-  //   done();
-  // });
+  it('Nav Border Color', function(done) {
+    expect($('nav').css("border-bottom-width"),  'The `background-color` property should be set to blue').
+      to.equal('10px');
+    expect($('nav').css("border-bottom-style"),  'The `background-color` property should be set to blue').
+      to.equal('solid');
+    expect($('nav').css("border-bottom-color"),  'The `background-color` property should be set to blue').
+      to.equal('rgb(180,40,40)');
+
+    done();
+  });
 
   it('Even Boxes Text', function(done) {
     expect($('#box4').text(),
