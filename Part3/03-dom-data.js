@@ -13,7 +13,7 @@ function wikiUrl (name) {
 
 /**
  * given a name, this function should return, as a string, a valid link to a wiki page
- * of the form <a href='link url'>content</a>
+ * of the form <a href="link url">name</a>
  * the function `wikiURL` should make it easier to do this.
  * @param {string} name
  * @returns {} 
