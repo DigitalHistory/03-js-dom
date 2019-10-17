@@ -212,11 +212,11 @@ describe('Part 2: Dom Tricks', function(done) {
 
   // TODO: fix  
   it('Nav Border Color', function(done) {
-    expect($('nav').css("border-bottom-width"),  'The `background-color` property should be set to blue').
+    expect($('nav').css("border-bottom-width"),  'The `border-bottom width` property should be set to 10px').
       to.equal('10px');
-    expect($('nav').css("border-bottom-style"),  'The `background-color` property should be set to blue').
+    expect($('nav').css("border-bottom-style"),  'The `border-bottom style` property should be set to solid').
       to.equal('solid');
-    expect($('nav').css("border-bottom-color"),  'The `background-color` property should be set to blue').
+    expect($('nav').css("border-bottom-color"),  'The `border-bottom coloe` property should be set to rgb(180,40,40)').
       to.equal('rgb(180,40,40)');
 
     done();
