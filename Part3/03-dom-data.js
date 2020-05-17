@@ -42,6 +42,14 @@ function wikifyElementHtml (element) {
  * @param {string} selector
  */
 function wikifySelector(selector) {
+  // fetch a list of all elements in the page that match 'selector'
+  // *and* set a variable equal to that list
+  
+  
+  // loop through that list
+  // and inside the loop do
+  // call wikifyElementHtml on each element
+  
 };
   
 
