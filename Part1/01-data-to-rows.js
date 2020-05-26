@@ -49,7 +49,7 @@ Tambo being greeted on arrival in East Germany (1978). In 1955, Tambo became Sec
     goldberg = {
       name: 'Denis Goldberg',
       born: 1933,
-      died: null,
+      died: 2020,
       affiliations: ['SACOD', 'ANC', 'SACP'],
       description: `When the underground armed wing of the ANC, Umkhonto we Sizwe was founded in 1961, Goldberg became a technical officer. In 1963 he was arrested at the Rivonia headquarters of their army. He was sentenced in 1964 at the end of the famous Rivonia Trial to four terms of life imprisonment. He was the only white member of Umkhonto we Sizwe to be arrested and sentenced in the Rivonia Trial to life imprisonment.`
     },
