@@ -136,7 +136,7 @@ describe('Git Checks', function() {
 
 // 'dtr' contains module exportsfrom 01-data-to-rows
 describe('Part 1: From Data to Rows', function() {
-  
+
   it('tagIt should return a string of the form <tagname>content</tagname>, even if the content and tagname are random English words', function() {
     let t = 'h1',
         c = 'Header Words',
@@ -213,16 +213,16 @@ describe('Part 2: Dom Tricks', function(done) {
   });
 
   // TODO: fix  
-  it('Nav Border', function(done) {
-    console.log("border-bottom", $('nav').css())
+
+  it('Nav Border Color', function(done) {
     expect($('nav').css("border-bottom-width"),
-           'The `border bottom` shold be set to 10px').
+           'The `border-bottom width` property should be set to 10px').
       to.equal('10px');
     expect($('nav').css("border-bottom-style"),
-           'The `background-color` property should be set to blue').
+           'The `border-bottom-style` property should be set to solid').
       to.equal('solid');
     expect($('nav').css("border-bottom-color"),
-           'The `background-color` property should be set to blue').
+           'The `border-bottom-color` property should be set to rgb(180,40,40)').
       to.equal('rgb(180,40,40)');
 
     done();
