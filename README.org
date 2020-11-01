@@ -114,5 +114,7 @@ Note they always consist of "https://en.wikipedia.org/wiki/" + A_Name_With_Space
 *If and only if you are aiming to achieve an A in the course*, you must also complete the Reflection section of the assignment.  Answer the questions in ~Reflection/reflection.md~.  Follow the directions in the file. 
 
 ** Tests
-As in our other assignments, this one conmes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run ~npm test~ or, to watch the directory continuously, ~npm run watch~
+As in our other assignments, this one comes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run ~npm test~ or, to watch the directory continuously, ~npm run watch~
 
+** Notes for People with pre-existing web skills
+In real life, you would probably avoid programming in the way we do here. Instead of directly inserting strings into the HTML structure of the page, you would operate at the element level, creating, inserting, and manipulating nodes into the DOM. Unfortunately, working that way requires use of the `document` object, which does not exist be default in Nodejs files.  This makes it difficult to employ a transitional problemset in part 1.  If you have thoughts on how to improve the experience here I would love to hear them!
