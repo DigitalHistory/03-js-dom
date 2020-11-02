@@ -29,7 +29,7 @@ const wikiString = 'https://en.wikipedia.org/wiki/';
 
 // why these? 
 var repoPath = path.resolve(process.env.REPO || (__dirname + '/../.git'));
-var ignoreCommitEmails = 'matt.price@utoronto.ca';
+var ignoreCommitEmails = ['matt.price@utoronto.ca', 'lara.howerton@mail.utoronto.ca'];
 const matchesProfEmail = function (email, profEmails) {
   return (profEmails.indexOf(email) > -1);
 };
@@ -98,9 +98,9 @@ describe('Git Checks', function() {
         }
       })
       .on('end', function () {
+        done();
       })
     ;
-    done();
 
       //return [r, e];
     });
