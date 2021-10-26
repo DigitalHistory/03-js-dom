@@ -13,7 +13,7 @@
 // Data Source: Please do not edit these variables. They will be used later on to generate HTML.  //
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let biko = {
+const biko = {
   name: 'Steve Biko',
   born: 1946,
   died: 1977,
@@ -84,9 +84,6 @@ Tambo being greeted on arrival in East Germany (1978). In 1955, Tambo became Sec
     };
 
 leaders = [biko, tambo, mandela, tutu, ngoyi, sobukwe, goldberg, first];
-
-
-
 
 //////////////////////////////////////////////////////////////////////////
 // Problem 1a: Write a simple function that generates an HTML tag when  //

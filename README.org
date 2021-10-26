@@ -1,3 +1,4 @@
+
 * Javascript Dom and Data Assignment: Goal
 This is an assignment for [[http://digital.hackinghistory.ca][Digital History]], a digital humanities course taught in the History Department at the University of Toronto.  If you're a teacher, feel free to fork and repurpose for your own courses.  If you're a student, keep reading!
 
@@ -15,7 +16,7 @@ This assignment is graded pass/fail. You will only get credit if *all of your co
 
 * Checking Out And Handing In the Assignment
 
-Create your personal copy of this repository by following the Github Classroom link you got separately. The new repository will appear at the URL https://github.com/dh2020fall/03-DOM-and-data-YOURID (as always, replace with your own github ID!).  Clone this new repository locally via the "Clone or Download" process discussed in [[https://github.com/DigitalHistory/assignment-00-git-and-github/][your first assignment]] and also [[https://help.github.com/articles/cloning-a-repository/][described here]], and do your work in VSCode. 
+Create your personal copy of this repository by following the Github Classroom link you got separately. The new repository will appear at the URL ~https://github.com/dh20219/03-DOM-and-data-YOURID~ (as always, replace with your own github ID!).  Clone this new repository locally via the "Clone or Download" process discussed in [[https://github.com/DigitalHistory/assignment-00-git-and-github/][your first assignment]] and also [[https://help.github.com/articles/cloning-a-repository/][described here]], and do your work in VSCode (you can also use the built-in GitHub integration in VSCode). 
 
 When your assignment passes all tests and you are satisfied with your work, *please be sure that you have also pushed all your commits to the repository*. This will ensure that I receive your work.
 
@@ -107,7 +108,7 @@ Now, consider the structure of Wikipedia links:
 https://en.wikipedia.org/wiki/Steve Biko
 #+END_SRC
 
-Note they always consist of "https://en.wikipedia.org/wiki/" + A_Name_With_Spaces_Replaced_By_Underscores.  But, lucky you, /Wikipedia will rewrite spaces as underscores for you!/ So you just need to besure you are producing the correct string, which consists of the Wikipedia "prefix" plus the figure's name
+Note they always consist of "https://en.wikipedia.org/wiki/" + A_Name_With_Spaces_Replaced_By_Underscores.  But, lucky you, /Wikipedia will rewrite spaces as underscores for you!/ So you just need to be sure you are producing the correct string, which consists of the Wikipedia "prefix" plus the figure's name
 
 
 ** Part 4: Reflection
@@ -117,4 +118,4 @@ Note they always consist of "https://en.wikipedia.org/wiki/" + A_Name_With_Space
 As in our other assignments, this one comes with a set of bundled tests designed to make your life a little easier.  To run them, first execute ~npm install~ from this directory. Then run ~npm test~ or, to watch the directory continuously, ~npm run watch~
 
 ** Notes for People with pre-existing web skills
-In real life, you would probably avoid programming in the way we do here. Instead of directly inserting strings into the HTML structure of the page, you would operate at the element level, creating, inserting, and manipulating nodes into the DOM. Unfortunately, working that way requires use of the `documentb` object, which does not exist be default in Nodejs files.  This makes it difficult to employ a transitional problemset in part 1.  If you have thoughts on how to improve the experience here I would love to hear them!
+In real life, you would probably avoid programming in the way we do here. Instead of directly inserting strings into the HTML structure of the page, you would operate at the element level, creating, inserting, and manipulating nodes into the DOM. Unfortunately, working that way requires use of the `document` object, which does not exist be default in Nodejs files.  This makes it difficult to employ a transitional problemset in Part 1.  If you have thoughts on how to improve the experience here I would love to hear them!
